@@ -1,0 +1,26 @@
+server:
+  port: 8080
+     
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+      
+jwt:
+  secret: 1nf4Br4s1l
+        
+spring:
+  application:
+    name: infa-api-gateway
+  cloud:
+    gateway:
+      routes:
+      - id: infa-authserver
+        uri: lb://infa-authserver
+        predicates:
+        - Method=GET,POST
+        - Path= /infaauthorizationserver/teste/**, 
+                /infaauthorizationserver/auth/**

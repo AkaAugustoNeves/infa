@@ -1,0 +1,1 @@
+ALTER TABLE militar ADD codigo_verificacao varchar(6);

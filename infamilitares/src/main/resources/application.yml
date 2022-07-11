@@ -1,0 +1,33 @@
+server:
+  port: ${PORT:0}
+  servlet:
+    context-path: /infamilitar
+  
+spring:
+  application:
+    name: infa-militares
+  jackson:
+    deserialization:
+      fail-on-unknown-properties: true
+    date-format: dd-MM-yyyy
+    
+    
+  jpa:
+    database: MYSQL
+    show-sql: true
+    generate-ddl: true
+    
+  datasource:
+      url: jdbc:mysql://localhost/infamilitares?createDatabaseIfNotExist=true&useSSL=false&useTimezone=true&serverTimezone=UTC
+      username: root
+      password: codeguskr
+    
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+
+
