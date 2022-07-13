@@ -10,7 +10,7 @@ eureka:
 
       
 jwt:
-  secret: 1nf4Br4s1l
+  secret: InF4Br4$Il
         
 spring:
   application:
